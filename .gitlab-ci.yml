@@ -1,0 +1,38 @@
+image: python:3.9
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip-cache"
+  PLATFORMIO_CACHE_DIR: "$CI_PROJECT_DIR/.platformio-cache"
+
+cache:
+  paths:
+    - .pip-cache/
+    - .platformio-cache/
+
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
+stages:
+  - sast
+  - test
+
+before_script:
+  - pip install -U platformio
+
+cpp-check:
+  stage: sast
+  script:
+    - platformio check -e native
+
+sast:
+  stage: sast
+
+native-test:
+  stage: test
+  script:
+    - platformio test -e native
+
+embedded-esp32dev-test:
+  stage: test
+  script:
+    - platformio test -e esp32dev
