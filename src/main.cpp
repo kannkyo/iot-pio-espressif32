@@ -1,7 +1,9 @@
 #ifndef UNIT_TEST // disable program main loop while unit testing in progress
 
 #include <Arduino.h>
+#include <WiFi.h>
 #include "calculator.h"
+#include "secrets.h"
 
 Calculator calc;
 
@@ -13,10 +15,51 @@ void blink_once(unsigned int delay_ms)
   delay(delay_ms);
 }
 
+void setupWifi()
+{
+  // Connect to Wifi.
+  Serial.print("Connecting to ");
+  Serial.println(WIFI_SSID);
+
+  // Set WiFi to station mode and disconnect from an AP if it was previously connected
+  WiFi.mode(WIFI_STA);
+  WiFi.disconnect();
+
+  delay(100);
+
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
+  Serial.println("Connecting...");
+
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    // Check to see if connecting failed.
+    // This is due to incorrect credentials
+    if (WiFi.status() == WL_CONNECT_FAILED)
+    {
+      Serial.println("Failed to connect to WIFI. Please verify credentials: ");
+      Serial.println();
+      Serial.print("SSID: ");
+      Serial.println(WIFI_SSID);
+      Serial.print("Password: ");
+      Serial.println(WIFI_PASS);
+      Serial.println();
+    }
+    delay(5000);
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+
+  Serial.println("Hello World, I'm connected to the internets!!");
+}
+
 void setup()
 {
   Serial.begin(9600);
   Serial.println("Program started!");
+  // setupWifi();
 }
 
 void loop()
