@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        test-target: [native esp32dev]
+        test-target: [native, esp32dev]
         check-target: [native]
     steps:
       - uses: actions/checkout@v2
