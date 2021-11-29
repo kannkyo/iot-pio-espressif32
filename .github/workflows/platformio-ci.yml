@@ -28,3 +28,4 @@ jobs:
         run: pio check -e ${{ matrix.check-target }}
       - name: Test PlatformIO
         run: pio test -e ${{ matrix.test-target }}
+        continue-on-error: true
