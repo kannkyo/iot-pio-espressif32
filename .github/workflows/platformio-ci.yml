@@ -1,0 +1,30 @@
+name: platformio ci
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test-target: [native esp32dev]
+        check-target: [native]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Cache PlatformIO
+        uses: actions/cache@v2
+        with:
+          path: ~/.platformio
+          key: platformio-${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+      - name: Install PlatformIO
+        run: |
+          python -m pip install --upgrade pip
+          pip install --upgrade platformio
+      - name: Check PlatformIO
+        run: pio check -e ${{ matrix.check-target }}
+      - name: Test PlatformIO
+        run: pio test -e ${{ matrix.test-target }}
