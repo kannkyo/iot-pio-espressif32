@@ -4,7 +4,7 @@ PlatformIO で ESP32 を開発するサンプルプロジェクト
 
 ## GitHub
 
-[![platformio ci](https://github.com/kannkyo/iot-pio--environmentspressif32/actions/workflows/platformio-ci.yml/badge.svg)](https://github.com/kannkyo/iot-pio--environmentspressif32/actions/workflows/platformio-ci.yml)
+[![platformio ci](https://github.com/kannkyo/iot-pio-espressif32/actions/workflows/platformio-ci.yml/badge.svg)](https://github.com/kannkyo/iot-pio-espressif32/actions/workflows/platformio-ci.yml)
 
 ## インストール
 
