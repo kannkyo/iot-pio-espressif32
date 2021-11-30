@@ -1,4 +1,4 @@
-# iot-pio--environmentspressif32
+# iot-pio-espressif32
 
 PlatformIO で ESP32 を開発するサンプルプロジェクト
 
