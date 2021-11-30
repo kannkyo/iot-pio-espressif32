@@ -80,4 +80,5 @@ platformio test --environment esp32dev
 
 ## 参考サイト
 
-<https://docs.platformio.org/en/stable/tutorials/espressif32/arduino_debugging_unit_testing.HTML>
+- <https://docs.platformio.org/en/stable/tutorials/espressif32/arduino_debugging_unit_testing.HTML>
+- <https://davinci-kit-ja.rtfd.io>
