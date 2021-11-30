@@ -2,6 +2,8 @@
 
 void Wifi::connect(const char *ssid, const char *passfrase)
 {
+#ifndef NATIVE
+
   // Connect to Wifi.
   Serial.print("[WIFI] Connecting to ");
   Serial.println(ssid);
@@ -35,4 +37,6 @@ void Wifi::connect(const char *ssid, const char *passfrase)
   Serial.println(WiFi.localIP());
 
   Serial.println("[WIFI] Hello World, I'm connected to the internets!!");
+
+#endif
 };

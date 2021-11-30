@@ -6,10 +6,8 @@
 #include "led.h"
 #include "wifi.h"
 
-#define LED_BUILTIN 32
-
 Calculator calc;
-LED led(LED_BUILTIN);
+LED led(32);
 Wifi wifi;
 
 void setup()

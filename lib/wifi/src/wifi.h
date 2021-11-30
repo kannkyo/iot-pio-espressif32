@@ -2,7 +2,10 @@
 #define WIFI_H
 
 #include <Arduino.h>
+
+#ifndef NATIVE
 #include <WiFi.h>
+#endif
 
 class Wifi
 {
