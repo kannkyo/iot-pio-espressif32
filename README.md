@@ -17,7 +17,7 @@ PlatformIO で ESP32 を開発するサンプルプロジェクト
 Python で platformio パッケージをインストールしてください。
 
 ```bash
-pip install -U platformio
+pipx install platformio
 ```
 
 ## 使い方
