@@ -40,3 +40,18 @@ void Wifi::connect(const char *ssid, const char *passfrase)
 
 #endif
 };
+
+void Wifi::ping(const char *hostname)
+{
+#ifndef NATIVE
+  bool ret = Ping.ping(hostname);
+  float avg_time_ms = Ping.averageTime();
+
+  Serial.print("[WIFI] ping to ");
+  Serial.print(hostname);
+  Serial.print(" return:");
+  Serial.print(ret);
+  Serial.print(" average time:");
+  Serial.println(avg_time_ms);
+#endif
+};
