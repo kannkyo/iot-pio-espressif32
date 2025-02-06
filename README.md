@@ -2,6 +2,10 @@
 
 PlatformIO で ESP32 を開発するサンプルプロジェクト
 
+## 動作確認環境
+
+1. WSL2 (Ubuntu) on Windows 11
+
 ## GitHub
 
 [![platformio ci](https://github.com/kannkyo/iot-pio-espressif32/actions/workflows/platformio-ci.yml/badge.svg)](https://github.com/kannkyo/iot-pio-espressif32/actions/workflows/platformio-ci.yml)
